@@ -1,0 +1,8 @@
+{
+  "actionItemStatuses": [
+    { "name": "未着手", "role": "notStarted" },
+    { "name": "進行中", "role": "inProgress" },
+    { "name": "保留",   "role": "onHold" },
+    { "name": "完了",   "role": "completed" }
+  ]
+}

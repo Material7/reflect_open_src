@@ -1,0 +1,12 @@
+{
+    "phases": [
+        { "code": "RA", "name": "", "description": "", "target": "Requirement" },
+        { "code": "AD", "name": "", "description": "", "target": "Development" },
+        { "code": "DD", "name": "", "description": "", "target": "Development" },
+        { "code": "UC", "name": "", "description": "", "target": "Development" },
+        { "code": "UTD", "name": "", "description": "", "target": "Development" },
+        { "code": "UT", "name": "", "description": "", "target": "Development" },
+        { "code": "CTD", "name": "", "description": "", "target": "Development" },
+        { "code": "CT", "name": "", "description": "", "target": "Development" }
+    ]
+}

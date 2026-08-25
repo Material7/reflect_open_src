@@ -1,0 +1,70 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.5.0'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.reflect'
+version = '1.0.0'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-cache'
+	implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
+	implementation 'org.hibernate.orm:hibernate-core'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
+	runtimeOnly 'org.postgresql:postgresql'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+// 共有マスタ（shared/*.json）はフロントエンドと共有する単一の定義元。
+// classpath に取り込み、各 Catalog が起動時に読み込む。
+// Docker ビルドではコンテキストがリポジトリルートのため、この相対位置が保たれる。
+def sharedDir = file("${projectDir}/../shared")
+def sharedMasters = ['work-steps.json', 'phases.json', 'task-statuses.json', 'action-item-statuses.json']
+
+tasks.named('processResources') {
+	from(sharedDir) {
+		include sharedMasters
+	}
+}
+
+tasks.register('checkSharedResources') {
+	doFirst {
+		sharedMasters.each { name ->
+			if (!file("${sharedDir}/${name}").exists()) {
+				throw new GradleException(
+					"共有マスタが見つかりません: ${sharedDir}/${name} — " +
+					"リポジトリルートの shared/ ディレクトリが必要です")
+			}
+		}
+	}
+}
+
+tasks.named('processResources') { dependsOn 'checkSharedResources' }
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+tasks.named('bootRun') {
+	jvmArgs = ['-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8']
+}

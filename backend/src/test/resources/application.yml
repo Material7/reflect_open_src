@@ -1,0 +1,22 @@
+# テスト専用設定
+#
+# ここに書かれた値はテスト実行時のみ使用されるダミーであり、
+# 本番・開発環境では使用されません（実際の値は環境変数または
+# application-secret.yml で供給します）。
+
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/reflect?TimeZone=Asia/Tokyo}
+    username: ${DB_USER:spring}
+    password: ${DB_PASS:spring_pass}
+
+server:
+  ssl:
+    enabled: false
+
+jwt:
+  secret: test-only-jwt-secret-not-used-outside-tests-0123456789
+  expiration-ms: 86400000
+
+credential:
+  encryption-key: test-only-credential-encryption-key-not-used-outside-tests

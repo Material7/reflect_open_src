@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+frontend/dist/
+backend/build/
+backend/.gradle/
+
+# Secrets
+*.p12
+*.jks
+*.keystore
+backend/application-secret.yml
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db

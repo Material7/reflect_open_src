@@ -1,0 +1,27 @@
+{
+  "workSteps": [
+    { "code": "X01", "name": "X01", "progress": 0, "role": "notStarted" },
+    { "code": "X02", "name": "X02", "progress": 5 },
+    { "code": "X03", "name": "X03", "progress": 10 },
+    { "code": "X04", "name": "X04", "progress": 15 },
+    { "code": "X05", "name": "X05", "progress": 20 },
+    { "code": "X06", "name": "X06", "progress": 25 },
+    { "code": "X07", "name": "X07", "progress": 30 },
+    { "code": "X08", "name": "X08", "progress": 35 },
+    { "code": "X09", "name": "X09", "progress": 40 },
+    { "code": "X10", "name": "X10", "progress": 45 },
+    { "code": "X11", "name": "X11", "progress": 50 },
+    { "code": "X12", "name": "X12", "progress": 55 },
+    { "code": "X13", "name": "X13", "progress": 60 },
+    { "code": "X14", "name": "X14", "progress": 65 },
+    { "code": "X15", "name": "X15", "progress": 70 },
+    { "code": "X16", "name": "X16", "progress": 75 },
+    { "code": "X17", "name": "X17", "progress": 80 },
+    { "code": "X18", "name": "X18", "progress": 85 },
+    { "code": "X19", "name": "X19", "progress": 90 },
+    { "code": "X20", "name": "X20", "progress": 95 },
+    { "code": "X21", "name": "X21", "progress": 100, "role": "completed" },
+    { "code": "X22", "name": "X22", "progress": 100, "role": "completed" },
+    { "code": "X23", "name": "X23", "progress": 0, "role": "excluded" }
+  ]
+}

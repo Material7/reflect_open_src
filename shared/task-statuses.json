@@ -1,0 +1,9 @@
+{
+  "taskStatuses": [
+    { "name": "新規",   "role": "notStarted" },
+    { "name": "進行中", "role": "inProgress" },
+    { "name": "保留",   "role": "onHold" },
+    { "name": "中止",   "role": "stopped" },
+    { "name": "完了",   "role": "completed" }
+  ]
+}
